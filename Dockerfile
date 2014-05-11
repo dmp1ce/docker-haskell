@@ -5,7 +5,7 @@ MAINTAINER David Parrish <daveparrish@gmail.com>
 RUN sed -i '/\[extra\]/i [haskell-core]\nServer = http://xsounds.org/~haskell/core/$arch\n' /etc/pacman.conf
 RUN pacman-key -r 4209170B
 RUN pacman-key --lsign-key 4209170B
-RUN pacman -Syy
+RUN pacman -Syy --quiet
 
 # Install GHC and cabal-install
-RUN pacman -S --needed --noconfirm ghc cabal-install
+RUN pacman -S --quiet --needed --noconfirm ghc cabal-install
